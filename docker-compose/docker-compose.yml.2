@@ -1,0 +1,36 @@
+version: '3'
+services:
+  receiver:
+    container_name: receiver
+    build:
+      context: ./receiver
+      dockerfile: ./Dockerfile-receiver
+    ports:
+      - "5557:5557"
+    environment:
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+    volumes: 
+      - ./data:/app/data
+  processor0:
+    container_name: processor0
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=0
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor1:
+    container_name: processor1
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=1
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"

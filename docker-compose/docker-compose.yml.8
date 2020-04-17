@@ -1,0 +1,102 @@
+version: '3'
+services:
+  receiver:
+    container_name: receiver
+    build:
+      context: ./receiver
+      dockerfile: ./Dockerfile-receiver
+    ports:
+      - "5557:5557"
+    environment:
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+    volumes: 
+      - ./data:/app/data
+  processor0:
+    container_name: processor0
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=0
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor1:
+    container_name: processor1
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=1
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor2:
+    container_name: processor2
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=2
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor3:
+    container_name: processor3
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=3
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor4:
+    container_name: processor4
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=4
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor5:
+    container_name: processor5
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=5
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor6:
+    container_name: processor6
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=6
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"
+  processor7:
+    container_name: processor7
+    build:
+      context: ./processor
+      dockerfile: ./Dockerfile-processor
+    #ports:
+      #- "5558:5558"
+    environment:
+      - PORT=7
+      - PYZMQ_HOST=172.17.0.1
+    network_mode: "host"

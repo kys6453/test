@@ -1,0 +1,6 @@
+FROM iot_edge_base:latest
+
+COPY . /app
+
+ENTRYPOINT ["/usr/bin/python3", "-u", "/app/processor.py"]
+
